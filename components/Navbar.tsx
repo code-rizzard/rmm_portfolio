@@ -16,7 +16,9 @@ const Navbar = () => {
         <nav
         className="flex justify-between items-center py-6 px-4 "
         >
-            <div className="brand-logo flex flex-row gap-2" >
+            <Link
+            href="/"
+            className="brand-logo flex flex-row gap-2" >
                 <Image 
                 src="/images/rmm_logo.png"
                 alt="RMM Logo"
@@ -25,6 +27,10 @@ const Navbar = () => {
                 objectFit="contain"
                 />
                 RMM
+            </Link>
+            <div className="flex flex-row gap-3">
+                <Link href="/projects"className="nav__link-desktop" >Projects</Link>
+                <Link href="/contact" className="nav__link-desktop">Contact</Link>
             </div>
             <button type="button"
                 className="text-3xl text-brand hidden  max-md:block"

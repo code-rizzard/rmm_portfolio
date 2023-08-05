@@ -9,3 +9,9 @@
 .nav__link.active {
     @apply text-brand underline;
 }
+
+.nav__link-desktop {
+    @apply max-md:hidden hover:scale-110 hover:text-brand
+    focus:scale-110
+     text-white text-xl font-bold transition-transform ease-in-out block ;
+}
