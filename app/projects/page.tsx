@@ -1,7 +1,14 @@
 import { Project } from "@/types"
 import { getProjects } from "@/utils"
+import { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
+
+
+export const metadata : Metadata = {
+  title: "RMM - Projects",
+  description: "List of projects I have worked on. This is not limited to only web projects but also some games, android, and other platforms I have done."
+}
 
 const ProjectsPage = async () => {
   return (
