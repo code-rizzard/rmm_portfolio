@@ -1,3 +1,4 @@
+import CodingExperience from '@/components/CodingExperience'
 import TechsUsed from '@/components/tech_used/TechsUsed'
 import Image from 'next/image'
 
@@ -40,6 +41,7 @@ export default function Home() {
       <TechsUsed
       
       />
+      <CodingExperience />
     </main>
   )
 }
