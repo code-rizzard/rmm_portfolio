@@ -14,7 +14,7 @@ const Navbar = () => {
     className="border-b border-brand-secondary min-h-10 relative"
     >
         <nav
-        className="flex justify-between items-center py-6 px-4 "
+        className="flex justify-between items-center py-6 px-12 max-md:px-6"
         >
             <Link
             href="/"
