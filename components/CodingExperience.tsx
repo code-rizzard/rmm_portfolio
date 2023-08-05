@@ -1,5 +1,8 @@
 
 const CodingExperience = () => {
+    const startYear = 2020
+    const experience = new Date().getFullYear() - startYear;
+
   return (
     <div
     className="p__container flex justify-center items-center"
@@ -7,8 +10,8 @@ const CodingExperience = () => {
         <div className="flex  items-stretch">
             <div className="flex justify-center p-2 flex-shrink-0  bg-brand rounded-l-lg  min-w-[100px] min-h-[100px]">
                 <span
-                className="text-8xl font-bold"
-                >2</span>
+                className="text-8xl font-bold flex items-center"
+                >{experience}</span>
                 <span
                 className="flex items-start text-5xl justify-start"
                 >
