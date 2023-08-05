@@ -3,7 +3,7 @@ import { getProjects } from "@/utils"
 import Image from "next/image"
 import Link from "next/link"
 
-const ProjectsPage = () => {
+const ProjectsPage = async () => {
   return (
     <>
       <div
@@ -32,7 +32,7 @@ const ProjectsPage = () => {
         
       </div>
       {
-        getProjects().map(project => <ProjectCard project={project} />)
+        (await getProjects()).map(project => <ProjectCard project={project} />)
       }
     </>
   )
@@ -48,8 +48,9 @@ const ProjectCard = ({project} : ProjectCardProps) => {
   return (
     <div
     className="p__container">
-      <Link 
-      href={'/'}
+      <a
+      href={project.url}
+      target="_blank"
        className="flex flex-col gap-2 p-3 border border-brand-secondary rounded relative group"
        
        >
@@ -57,10 +58,11 @@ const ProjectCard = ({project} : ProjectCardProps) => {
         className="text-2xl font-bold text-brand"
         >{project.name}</h3>
         <Image 
-        src="/images/rmm_logo.png"
-        width={100}
-        height={100}
+        src={project.image}
+        width={600}
+        height={400}
         alt={`${project.name} image `}
+        className="object-fit w-full h-full"
         />
         <div className="flex flex-wrap justify-start align-center gap-3 mt-4">
           {
@@ -81,7 +83,7 @@ const ProjectCard = ({project} : ProjectCardProps) => {
           className="justify-self-end bg-brand text-white px-3 py-2 text-center rounded-md"
           >Visit</span>
         </div>
-      </Link>
+      </a>
     </div>
   )
 }

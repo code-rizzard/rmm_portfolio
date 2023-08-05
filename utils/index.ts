@@ -1,28 +1,17 @@
 import { Project } from "@/types";
 
-export function getProjects(): Project[] {
-  const projects: Project[] = [
-    {
-      name: "Wordlery",
-      description: "A wordle clone game for the web",
-      url: "https://wordlery.netlify.app/",
-      image: "",
-      tags: ["Angular", "SCSS", "TypeScript", "HTML", "Netlify"],
-    },
-    {
-      name: "Wordlery",
-      description: "A wordle clone game for the web",
-      url: "https://wordlery.netlify.app/",
-      image: "",
-      tags: ["Angular", "SCSS", "TypeScript", "HTML", "Netlify"],
-    },
-    {
-      name: "Wordlery",
-      description: "A wordle clone game for the web",
-      url: "https://wordlery.netlify.app/",
-      image: "",
-      tags: ["Angular", "SCSS", "TypeScript", "HTML", "Netlify"],
-    },
-  ];
-  return projects;
+export async function getProjects(): Promise<Project[]> {
+  const rootUrl =
+    "https://raw.githubusercontent.com/fireWizard23/profile_projects_list/main";
+
+  const projectsResponse = await fetch(`${rootUrl}/list.json`);
+
+  const projects: Project[] = await projectsResponse.json();
+
+  return projects.map((project) => {
+    return {
+      ...project,
+      image: `${rootUrl}/${project.image}`,
+    };
+  });
 }

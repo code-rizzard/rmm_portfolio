@@ -24,7 +24,6 @@ const Navbar = () => {
                 alt="RMM Logo"
                 height={24}
                 width={24}
-                objectFit="contain"
                 />
                 RMM
             </Link>
