@@ -1,6 +1,7 @@
 import CodingExperience from '@/components/CodingExperience'
 import TechsUsed from '@/components/tech_used/TechsUsed'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -42,6 +43,18 @@ export default function Home() {
       
       />
       <CodingExperience />
+      <div className="p__container">
+        <div className="border border-brand-secondary rounded-md p-3 gap-3 flex flex-col">
+          <h3
+          className='text-3xl font-bold '
+          >My Projects</h3>
+          <p>Projects that I have created using web technologies, flutter, game engines and more.</p>
+          <Link 
+          href="/projects"
+          className='bg-brand text-white py-2 rounded-md self-end text-bold px-6'
+          >View</Link>
+        </div>
+      </div>
     </main>
   )
 }
