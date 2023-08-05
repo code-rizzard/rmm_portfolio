@@ -9,6 +9,20 @@ export function getProjects(): Project[] {
       image: "",
       tags: ["Angular", "SCSS", "TypeScript", "HTML", "Netlify"],
     },
+    {
+      name: "Wordlery",
+      description: "A wordle clone game for the web",
+      url: "https://wordlery.netlify.app/",
+      image: "",
+      tags: ["Angular", "SCSS", "TypeScript", "HTML", "Netlify"],
+    },
+    {
+      name: "Wordlery",
+      description: "A wordle clone game for the web",
+      url: "https://wordlery.netlify.app/",
+      image: "",
+      tags: ["Angular", "SCSS", "TypeScript", "HTML", "Netlify"],
+    },
   ];
   return projects;
 }

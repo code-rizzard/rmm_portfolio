@@ -1,6 +1,7 @@
 import { Project } from "@/types"
 import { getProjects } from "@/utils"
 import Image from "next/image"
+import Link from "next/link"
 
 const ProjectsPage = () => {
   return (
@@ -45,8 +46,13 @@ interface ProjectCardProps {
 const ProjectCard = ({project} : ProjectCardProps) => {
 
   return (
-    <div className="p__container">
-      <div className="flex flex-col gap-2 p-3 border border-brand-secondary rounded">
+    <div
+    className="p__container">
+      <Link 
+      href={'/'}
+       className="flex flex-col gap-2 p-3 border border-brand-secondary rounded relative group"
+       
+       >
         <h3
         className="text-2xl font-bold text-brand"
         >{project.name}</h3>
@@ -67,7 +73,15 @@ const ProjectCard = ({project} : ProjectCardProps) => {
             ))
           }
         </div>
-      </div>
+        <div className="absolute top-0 left-0 w-full h-full flex p-3 bg-surface flex-col transition-all group-focus-within:opacity-100 group-hover:opacity-100 opacity-0 duration-200 ease-in-out scale-90 group-focus-within:scale-100 group-hover:scale-100 ">
+          <p
+          className="text-md flex-grow"
+          >{project.description}</p>
+          <span
+          className="justify-self-end bg-brand text-white px-3 py-2 text-center rounded-md"
+          >Visit</span>
+        </div>
+      </Link>
     </div>
   )
 }
