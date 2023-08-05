@@ -1,3 +1,4 @@
+import TechsUsed from '@/components/tech_used/TechsUsed'
 import Image from 'next/image'
 
 export default function Home() {
@@ -36,6 +37,9 @@ export default function Home() {
           </p>
         </div>
       </div>
+      <TechsUsed
+      
+      />
     </main>
   )
 }

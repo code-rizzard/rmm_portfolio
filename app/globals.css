@@ -19,3 +19,8 @@
 .p__container {
     @apply py-6 px-12 max-md:px-6 max-xs:px-3;
 }
+
+.techs-used-container {
+    @apply grid gap-3;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+}
