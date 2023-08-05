@@ -12,7 +12,7 @@ const TechCard = ({
   return (
     <div className=" w-full flex flex-row gap-4 px-4 py-6 justify-around items-center border border-brand-secondary rounded-sm">
         <Image
-        src="/images/rmm_logo.png"
+        src={ image || "/images/rmm_logo.png"}
         width={36}
         height={36}
         alt="Tech Logo"
