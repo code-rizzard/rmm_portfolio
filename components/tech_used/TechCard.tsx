@@ -26,7 +26,7 @@ const TechCard = ({
     viewport={{ once: true, margin: "-100px"}}
     transition={{
         duration: 0.7,
-        delay: 0.2 + (index * 0.1),
+        delay: (index * 0.05),
     }}
     className=" w-full flex flex-row gap-4 px-4 py-6 justify-around items-center border border-brand-secondary rounded-sm">
         <Image
