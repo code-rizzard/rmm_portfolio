@@ -5,7 +5,7 @@ import CodingExperience from '@/components/CodingExperience'
 import TechsUsed from '@/components/tech_used/TechsUsed'
 import Image from 'next/image'
 import Link from 'next/link'
-import ProjectsView from '@/components/project_card/ProjectsPage'
+import ProjectsView from '@/components/project_card/ProjectsView'
 import ContactView from '../components/ContactView'
 
 export default function Home() {
