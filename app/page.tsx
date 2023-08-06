@@ -1,9 +1,15 @@
+"use client"
+
+import {motion, } from 'framer-motion'
 import CodingExperience from '@/components/CodingExperience'
 import TechsUsed from '@/components/tech_used/TechsUsed'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Home() {
+
+  
+
   return (
     <main
     >
@@ -18,8 +24,15 @@ export default function Home() {
         priority
         className='min-w-full brightness-[70%]'
         />
-        <div className="absolute flex flex-col gap-4 max-sm:gap-0 justify-evenly items-center w-full h-full top-0 left-0 p__container">
-         <div className='text-center flex flex-col gap-6 max-md:gap-2 p__container'>
+        <div
+          className="absolute flex flex-col gap-4 max-sm:gap-0 justify-evenly items-center w-full h-full top-0 left-0 p__container">
+         <motion.div 
+        initial={{ opacity: 0.2, y:-100 }}
+        animate={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, }}
+        transition={{ duration: 0.7, delay: 0,ease: "easeInOut",  }}
+         
+         className='text-center flex flex-col gap-6 max-md:gap-2 p__container'>
           <h4
             className='font-bold text-5xl max-xs:text-3xl text-center md:text-6xl flex flex-col gap-2'
             >
@@ -33,10 +46,15 @@ export default function Home() {
             >
             Always ready to create and design projects you want.
             </p>
-         </div>
-          <p className="text-right text-2xl text-brand self-end md:text-4xl max-xs:text-lg">
+         </motion.div>
+          <motion.p
+          initial={{ opacity: 0, translateX:"100%" }}
+          animate={{ opacity: 1, translateX: 0 }}
+          viewport={{ once: true, }}
+          transition={{ duration: 0.7, delay: 0.5, ease: "easeInOut" }}
+          className="text-right text-2xl text-brand self-end md:text-4xl max-xs:text-lg">
             Richard Manansala
-          </p>
+          </motion.p>
         </div>
       </div>
       <TechsUsed
@@ -44,7 +62,12 @@ export default function Home() {
       />
       <CodingExperience />
       <div className="p__container">
-        <div className="border border-brand-secondary rounded-md p-3 gap-3 flex flex-col">
+        <motion.div 
+          initial={{ opacity: 0.2, translateX:"-100%" }}
+          whileInView={{ opacity: 1, translateX: 0  }}
+          transition={{ duration: 0.7 ,ease: "easeInOut",  }}
+          viewport={{ once: true, }}
+        className="border border-brand-secondary rounded-md p-3 gap-3 flex flex-col overflow-hidden origin-left">
           <h3
           className='text-3xl font-bold '
           >My Projects</h3>
@@ -53,7 +76,7 @@ export default function Home() {
           href="/projects"
           className='bg-brand text-white py-2 rounded-md self-end text-bold px-6'
           >View</Link>
-        </div>
+        </motion.div>
       </div>
     </main>
   )

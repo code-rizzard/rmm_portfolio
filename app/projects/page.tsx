@@ -1,3 +1,4 @@
+import ProjectCard from "@/components/project_card/ProjectCard"
 import { Project } from "@/types"
 import { getProjects } from "@/utils"
 import { Metadata } from "next"
@@ -38,9 +39,9 @@ const ProjectsPage = async () => {
 
         
       </div>
-      <div className="flex flex-row flex-wrap gap-4 p__container max-sm:justify-center">
+      <div className="flex flex-row flex-wrap gap-4 p__container max-sm:justify-center overflow-hidden">
         {
-          (await getProjects()).map(project => <ProjectCard project={project} />)
+          (await getProjects()).map((project,index) => <ProjectCard key={project.url} index={index} project={project} />)
         }
       </div>
     </>
@@ -48,53 +49,5 @@ const ProjectsPage = async () => {
 }
 
 
-interface ProjectCardProps { 
-  project: Project
-}
-
-const ProjectCard = ({project} : ProjectCardProps) => {
-
-  return (
-    <div
-    className="max-w-sm sm:max-w-[250px] md:max-w-[300px]">
-      <a
-      href={project.url}
-      target="_blank"
-       className="flex flex-col h-full w-full gap-2 p-3 border border-brand-secondary rounded relative group"
-       
-       >
-        <h3
-        className="text-2xl font-bold text-brand"
-        >{project.name}</h3>
-        <Image 
-        src={project.image}
-        width={600}
-        height={400}
-        alt={`${project.name} image `}
-        className="object-fit w-full h-full"
-        />
-        <div className="flex flex-wrap justify-start align-center gap-3 mt-4">
-          {
-            project.tags.map(tag => (
-              <span
-              className="px-2 py-1 text-sm text-white bg-brand rounded-2xl max-md:text-[0.75rem] max-md:py-0"
-              >
-                {tag}
-              </span>
-            ))
-          }
-        </div>
-        <div className="absolute top-0 left-0 w-full h-full flex p-3 bg-surface flex-col transition-all group-focus-within:opacity-100 group-hover:opacity-100 opacity-0 duration-200 ease-in-out scale-90 group-focus-within:scale-100 group-hover:scale-100 ">
-          <p
-          className="text-md flex-grow"
-          >{project.description}</p>
-          <span
-          className="justify-self-end bg-brand text-white px-3 py-2 text-center rounded-md"
-          >Visit</span>
-        </div>
-      </a>
-    </div>
-  )
-}
 
 export default ProjectsPage
