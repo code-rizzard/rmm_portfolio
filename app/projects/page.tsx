@@ -54,7 +54,7 @@ const ProjectCard = ({project} : ProjectCardProps) => {
 
   return (
     <div
-    className="p__container">
+    className="p__container max-w-md">
       <a
       href={project.url}
       target="_blank"
