@@ -23,7 +23,7 @@ const ProjectsView = () => {
       <section
       
       id="projects"
-      className="p__container border-b border-brand-secondary "
+      className="p__container border-y border-brand-secondary mt-4 "
       >
         <div className="flex flex-col gap-5 ">
           <div className="flex flex-row items-center justify-between flex-grow mb-4">
