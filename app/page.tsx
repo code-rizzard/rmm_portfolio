@@ -63,23 +63,7 @@ export default function Home() {
       
       />
       <CodingExperience />
-      <section className="p__container">
-        <motion.div 
-          initial={{ opacity: 0.2, translateX:"-100%" }}
-          whileInView={{ opacity: 1, translateX: 0  }}
-          transition={{ duration: 0.7 ,ease: "easeInOut",  }}
-          viewport={{ once: true, }}
-        className="border border-brand-secondary rounded-md p-3 gap-3 flex flex-col overflow-hidden origin-left">
-          <h3
-          className='text-3xl font-bold '
-          >My Projects</h3>
-          <p>Projects that I have created using web technologies, flutter, game engines and more.</p>
-          <Link 
-          href="/projects"
-          className='bg-brand text-white py-2 rounded-md self-end text-bold px-6'
-          >View</Link>
-        </motion.div>
-      </section>
+      
       <ProjectsView
       />
       <ContactView
