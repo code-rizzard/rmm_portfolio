@@ -20,7 +20,8 @@ const ProjectsView = () => {
 
   return (
     <>
-      <div
+      <section
+      
       id="projects"
       className="p__container border-b border-brand-secondary "
       >
@@ -41,11 +42,8 @@ const ProjectsView = () => {
           >Projects List</h2>
           <p>Here are some list of nice little side projects I worked on:</p>
         </div>
-
-
-
         
-      </div>
+      </section>
       <div className="flex flex-row flex-wrap gap-4 p__container max-sm:justify-center overflow-hidden">
         {
           projects.map((project,index) => <ProjectCard key={project.url} index={index} project={project} />)

@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <main
     >
-      <div 
+      <section 
       className='relative bg-black border-b border-brand-secondary'
       >
         <Image 
@@ -58,12 +58,12 @@ export default function Home() {
             Richard Manansala
           </motion.p>
         </div>
-      </div>
+      </section>
       <TechsUsed
       
       />
       <CodingExperience />
-      <div className="p__container">
+      <section className="p__container">
         <motion.div 
           initial={{ opacity: 0.2, translateX:"-100%" }}
           whileInView={{ opacity: 1, translateX: 0  }}
@@ -79,7 +79,7 @@ export default function Home() {
           className='bg-brand text-white py-2 rounded-md self-end text-bold px-6'
           >View</Link>
         </motion.div>
-      </div>
+      </section>
       <ProjectsView
       />
       <ContactView
