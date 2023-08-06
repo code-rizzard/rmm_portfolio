@@ -1,9 +1,14 @@
+"use client"
+
+import {motion, useInView} from 'framer-motion'
 import CodingExperience from '@/components/CodingExperience'
 import TechsUsed from '@/components/tech_used/TechsUsed'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRef } from 'react'
 
 export default function Home() {
+
   return (
     <main
     >
@@ -18,7 +23,16 @@ export default function Home() {
         priority
         className='min-w-full brightness-[70%]'
         />
-        <div className="absolute flex flex-col gap-4 max-sm:gap-0 justify-evenly items-center w-full h-full top-0 left-0 p__container">
+        <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        transition={{ duration: 0.3, delay: 0, }}
+        variants={{
+          visible: { opacity: 1, scale: 1 },
+          hidden: { opacity: 0.2, scale: 0.8 }
+        }}
+          className="absolute flex flex-col gap-4 max-sm:gap-0 justify-evenly items-center w-full h-full top-0 left-0 p__container">
          <div className='text-center flex flex-col gap-6 max-md:gap-2 p__container'>
           <h4
             className='font-bold text-5xl max-xs:text-3xl text-center md:text-6xl flex flex-col gap-2'
@@ -37,7 +51,7 @@ export default function Home() {
           <p className="text-right text-2xl text-brand self-end md:text-4xl max-xs:text-lg">
             Richard Manansala
           </p>
-        </div>
+        </motion.div>
       </div>
       <TechsUsed
       

@@ -1,3 +1,4 @@
+
 import { Project } from "@/types"
 import { getProjects } from "@/utils"
 import { Metadata } from "next"
