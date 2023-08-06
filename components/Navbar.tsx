@@ -28,8 +28,8 @@ const Navbar = () => {
                 RMM
             </Link>
             <div className="flex flex-row gap-3">
-                <Link href="/projects"className="nav__link-desktop" >Projects</Link>
-                <Link href="/contact" className="nav__link-desktop">Contact</Link>
+                <Link href="#projects"className="nav__link-desktop" >Projects</Link>
+                <Link href="#contact" className="nav__link-desktop">Contact</Link>
             </div>
             <button type="button"
                 className="text-3xl text-brand hidden  max-md:block"

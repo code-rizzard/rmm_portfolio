@@ -1,6 +1,8 @@
     const ContactView = () => {
   return (
-    <div>ContactPage</div>
+    <div
+    id="contact"
+    >ContactPage</div>
   )
 }
 
