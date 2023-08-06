@@ -30,7 +30,7 @@ export default function Home() {
         initial={{ opacity: 0.2, y:-100 }}
         animate={{ opacity: 1, y: 0 }}
         viewport={{ once: true, }}
-        transition={{ duration: 0.7, delay: 0, }}
+        transition={{ duration: 0.7, delay: 0,ease: "easeInOut",  }}
          
          className='text-center flex flex-col gap-6 max-md:gap-2 p__container'>
           <h4
@@ -51,7 +51,7 @@ export default function Home() {
           initial={{ opacity: 0, translateX:"100%" }}
           animate={{ opacity: 1, translateX: 0 }}
           viewport={{ once: true, }}
-          transition={{ duration: 0.7, delay: 0.25, }}
+          transition={{ duration: 0.7, delay: 0.5, ease: "easeInOut" }}
           className="text-right text-2xl text-brand self-end md:text-4xl max-xs:text-lg">
             Richard Manansala
           </motion.p>
