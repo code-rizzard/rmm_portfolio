@@ -1,3 +1,5 @@
+"use client"
+
 import ProjectCard from "@/components/project_card/ProjectCard"
 import { Project } from "@/types"
 import { getProjects } from "@/utils"
@@ -11,10 +13,15 @@ export const metadata : Metadata = {
   description: "List of projects I have worked on. This is not limited to only web projects but also some games, android, and other platforms I have done."
 }
 
-const ProjectsView = async () => {
+const ProjectsView = () => {
+
+  const projects = getProjects()
+
+
   return (
     <>
       <div
+      id="projects"
       className="p__container border-b border-brand-secondary "
       >
         <div className="flex flex-col gap-5 ">
@@ -41,7 +48,7 @@ const ProjectsView = async () => {
       </div>
       <div className="flex flex-row flex-wrap gap-4 p__container max-sm:justify-center overflow-hidden">
         {
-          (await getProjects()).map((project,index) => <ProjectCard key={project.url} index={index} project={project} />)
+          projects.map((project,index) => <ProjectCard key={project.url} index={index} project={project} />)
         }
       </div>
     </>
