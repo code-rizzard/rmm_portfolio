@@ -5,6 +5,7 @@ import CodingExperience from '@/components/CodingExperience'
 import TechsUsed from '@/components/tech_used/TechsUsed'
 import Image from 'next/image'
 import Link from 'next/link'
+import ProjectsView from '@/components/project_card/ProjectsPage'
 
 export default function Home() {
 
@@ -78,6 +79,8 @@ export default function Home() {
           >View</Link>
         </motion.div>
       </div>
+      <ProjectsView
+      />
     </main>
   )
 }

@@ -11,7 +11,7 @@ export const metadata : Metadata = {
   description: "List of projects I have worked on. This is not limited to only web projects but also some games, android, and other platforms I have done."
 }
 
-const ProjectsPage = async () => {
+const ProjectsView = async () => {
   return (
     <>
       <div
@@ -50,4 +50,4 @@ const ProjectsPage = async () => {
 
 
 
-export default ProjectsPage
+export default ProjectsView
