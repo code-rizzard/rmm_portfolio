@@ -63,11 +63,11 @@ export default function Home() {
       <CodingExperience />
       <div className="p__container">
         <motion.div 
-        initial={{ opacity: 0.2, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.3, delay: 0, }}
-        
-        className="border border-brand-secondary rounded-md p-3 gap-3 flex flex-col">
+          initial={{ opacity: 0.2, translateX:"-100%" }}
+          whileInView={{ opacity: 1, translateX: 0  }}
+          transition={{ duration: 0.7 ,ease: "easeInOut",  }}
+          viewport={{ once: true, }}
+        className="border border-brand-secondary rounded-md p-3 gap-3 flex flex-col overflow-hidden origin-left">
           <h3
           className='text-3xl font-bold '
           >My Projects</h3>
