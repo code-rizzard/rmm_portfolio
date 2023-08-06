@@ -1,19 +1,30 @@
 import { Project } from "@/types";
+import { useEffect, useState } from "react";
 
-export async function getProjects(): Promise<Project[]> {
+export function getProjects() {
+  const [projects, setProjects] = useState<Project[]>([]);
   const rootUrl =
     "https://raw.githubusercontent.com/fireWizard23/profile_projects_list/main";
 
-  const projectsResponse = await fetch(`${rootUrl}/list.json`, {
-    next: { revalidate: 3000 },
-  });
+  useEffect(() => {
+    (async () => {
+      console.log("LSKDJFLSDKJFLKJ");
+      const projectsResponse = await fetch(`${rootUrl}/list.json`, {
+        next: { revalidate: 3000 },
+      });
 
-  const projects: Project[] = await projectsResponse.json();
+      const projectsJson: Project[] = await projectsResponse.json();
 
-  return projects.map((project) => {
-    return {
-      ...project,
-      image: `${rootUrl}/${project.image}`,
-    };
-  });
+      setProjects(
+        projectsJson.map((project) => {
+          return {
+            ...project,
+            image: `${rootUrl}/${project.image}`,
+          };
+        })
+      );
+    })();
+  }, []);
+
+  return projects;
 }

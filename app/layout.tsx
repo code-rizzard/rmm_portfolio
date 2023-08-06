@@ -17,8 +17,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en"
-    className='bg-surface text-white'
+    <html lang="en" 
+    className='bg-surface text-white scroll-smooth'
     >
       <body className={inter.className}>
         <Navbar/>
