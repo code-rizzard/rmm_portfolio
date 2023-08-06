@@ -38,9 +38,11 @@ const ProjectsPage = async () => {
 
         
       </div>
-      {
-        (await getProjects()).map(project => <ProjectCard project={project} />)
-      }
+      <div className="flex flex-row flex-wrap gap-4 p__container max-sm:justify-center">
+        {
+          (await getProjects()).map(project => <ProjectCard project={project} />)
+        }
+      </div>
     </>
   )
 }
@@ -54,11 +56,11 @@ const ProjectCard = ({project} : ProjectCardProps) => {
 
   return (
     <div
-    className="p__container max-w-md">
+    className="max-w-sm sm:max-w-[250px] md:max-w-[300px]">
       <a
       href={project.url}
       target="_blank"
-       className="flex flex-col gap-2 p-3 border border-brand-secondary rounded relative group"
+       className="flex flex-col h-full w-full gap-2 p-3 border border-brand-secondary rounded relative group"
        
        >
         <h3
@@ -75,7 +77,7 @@ const ProjectCard = ({project} : ProjectCardProps) => {
           {
             project.tags.map(tag => (
               <span
-              className="px-2 py-1 text-sm text-white bg-brand rounded-2xl"
+              className="px-2 py-1 text-sm text-white bg-brand rounded-2xl max-md:text-[0.75rem] max-md:py-0"
               >
                 {tag}
               </span>
