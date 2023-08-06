@@ -1,4 +1,6 @@
+"use client"
 
+import { motion } from "framer-motion"
 import { Project } from "@/types"
 import { getProjects } from "@/utils"
 import { Metadata } from "next"
@@ -39,9 +41,9 @@ const ProjectsPage = async () => {
 
         
       </div>
-      <div className="flex flex-row flex-wrap gap-4 p__container max-sm:justify-center">
+      <div className="flex flex-row flex-wrap gap-4 p__container max-sm:justify-center overflow-hidden">
         {
-          (await getProjects()).map(project => <ProjectCard project={project} />)
+          (await getProjects()).map((project,index) => <ProjectCard key={project.url} index={index} project={project} />)
         }
       </div>
     </>
@@ -51,12 +53,18 @@ const ProjectsPage = async () => {
 
 interface ProjectCardProps { 
   project: Project
+  index: number
 }
 
-const ProjectCard = ({project} : ProjectCardProps) => {
+const ProjectCard = ({project, index} : ProjectCardProps) => {
 
   return (
-    <div
+    <motion.div
+    initial={{ opacity: 0, scale: 0.9 }}
+    whileHover={{ scale: 1.05 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true}}
+    transition={{ duration: 0.3,  delay : 0.1 * index}}
     className="max-w-sm sm:max-w-[250px] md:max-w-[300px]">
       <a
       href={project.url}
@@ -78,6 +86,7 @@ const ProjectCard = ({project} : ProjectCardProps) => {
           {
             project.tags.map(tag => (
               <span
+              key={tag}
               className="px-2 py-1 text-sm text-white bg-brand rounded-2xl max-md:text-[0.75rem] max-md:py-0"
               >
                 {tag}
@@ -94,7 +103,7 @@ const ProjectCard = ({project} : ProjectCardProps) => {
           >Visit</span>
         </div>
       </a>
-    </div>
+    </motion.div>
   )
 }
 
