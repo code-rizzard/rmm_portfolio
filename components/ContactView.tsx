@@ -11,6 +11,8 @@ import { useState } from "react"
       <form
       onSubmit={async (e) => {
           e.preventDefault()
+          if(!data.email || !data.text) return alert("Please fill all the fields")
+          
           console.log("SENDIUNG")
           const responose = await fetch("/api/contact", {method: "POST", body: JSON.stringify({ ...data }  )})
           const res = await responose.text()
