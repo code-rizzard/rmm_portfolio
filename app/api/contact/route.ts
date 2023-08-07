@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import emailjs from "@emailjs/nodejs";
+import { RateLimiter } from "limiter";
 
 const verifyRecaptcha = async (token: string) => {
   try {
@@ -17,7 +18,26 @@ const verifyRecaptcha = async (token: string) => {
   }
 };
 
+const limiter = new RateLimiter({
+  interval: "min",
+  tokensPerInterval: 2,
+  fireImmediately: true,
+});
+
 export async function POST(req: NextRequest): Promise<NextResponse> {
+  const haveTokens = limiter.tryRemoveTokens(1);
+
+  if (!haveTokens) {
+    return NextResponse.json(
+      {
+        message: "Too many request. Try again after a minute",
+      },
+      {
+        status: 429,
+      }
+    );
+  }
+
   const body = await req.json();
 
   if (Object.keys(body).length === 0) {
