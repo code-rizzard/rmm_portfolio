@@ -1,8 +1,12 @@
+import { useReCaptcha } from "next-recaptcha-v3";
 import { useState } from "react"
 
-    const ContactView = () => {
+const ContactView = () => {
 
-      const [data, setData] = useState({email: '', text: ''})
+  const [data, setData] = useState({email: '', text: ''})
+
+  const { executeRecaptcha } = useReCaptcha();
+
   return (
     <section
     id="contact"
@@ -12,9 +16,9 @@ import { useState } from "react"
       onSubmit={async (e) => {
           e.preventDefault()
           if(!data.email || !data.text) return alert("Please fill all the fields")
-          
+          const recaptchaToken = await executeRecaptcha("contact_submit")
           console.log("SENDIUNG")
-          const responose = await fetch("/api/contact", {method: "POST", body: JSON.stringify({ ...data }  )})
+          const responose = await fetch("/api/contact", {method: "POST", body: JSON.stringify({ ...data, recaptchaToken }  )})
           const res = await responose.text()
           console.log(res)
         }}

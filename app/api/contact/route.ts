@@ -1,24 +1,55 @@
 import { NextRequest, NextResponse } from "next/server";
 import emailjs from "@emailjs/nodejs";
 
+const verifyRecaptcha = async (token: string) => {
+  try {
+    const res = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `secret=${process.env.RECAPTCHA_SECRET_TOKEN}&response=${token}`,
+    }).then((res) => res.json());
+
+    return res && res.success && res?.score > 0.5;
+  } catch (err) {
+    return false;
+  }
+};
+
 export async function POST(req: NextRequest): Promise<NextResponse> {
   const body = await req.json();
-  console.log("LDSKJ ", body);
+
   if (Object.keys(body).length === 0) {
     return NextResponse.json(
       { message: "Missing parameters. " },
       { status: 403 }
     );
   }
+
+  if (body.recaptchaToken == null) {
+    return NextResponse.json(
+      { message: "Missing recaptcha. " },
+      { status: 403 }
+    );
+  }
+
+  const isTokenValid = await verifyRecaptcha(body.recaptchaToken);
+  if (!isTokenValid) {
+    return NextResponse.json(
+      { message: "Invalid recaptcha. " },
+      { status: 403 }
+    );
+  }
   const { email, text } = body;
-  console.log("DATA ", body);
+
   if (!email || !text) {
     return NextResponse.json(
       { message: "Invalid parameters. " },
       { status: 403 }
     );
   }
-
+  console.log("SENDING EMAIL");
   emailjs.init({
     publicKey: "27hRrFjl80h5l6Of5",
     privateKey: "GOLyWzFEgeNhBrGfhlPFm",
