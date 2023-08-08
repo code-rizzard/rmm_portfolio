@@ -23,7 +23,7 @@ const TechCard = ({
         opacity: 1,
         scale: 1,
     }}
-    viewport={{ once: true, margin: "-100px"}}
+    viewport={{ once: true}}
     transition={{
         duration: 0.7,
         delay: (index * 0.05),
